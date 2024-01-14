@@ -32,17 +32,21 @@ export default function BookDetail(props)
       {
       for (let i = 0; i < allbooks.length; i++) 
       {
-      if(book.tags.map(tag=>(allbooks[i].tags.toString().includes(tag))) && book.dataId!==allbooks[i].dataId)
+      if(book.tags ? book.tags.map(tag=>(allbooks[i].tags.toString().includes(tag))) && book.dataId!==allbooks[i].dataId : "Error")
       {
         bookObjects.push(allbooks[i])
       }
-      setBooks(bookObjects);
+      if (bookObjects.length===6) 
+      {
+       setBooks(bookObjects)
+        break;
+      }
       }
    }
       recommendBooks();
    }, [allbooks,id,book])
    return(
-    <div className="">
+    <div className={props.darkMode ? "dark": "light"}>
         {(book)? (
         <div className="book-detail" key={book.dataId}>
         <img className="book-cover" src={book.coverImage} alt={book.title}></img>
@@ -60,7 +64,7 @@ export default function BookDetail(props)
        (<div>Loading</div>
         )
        }
-      <div>Books of same category</div>
+      <div className="recommend-section">Books of same category</div>
       <main>
       {books.map(book=>(
       <Link className='book-info' to={`/book/${book.dataId}`} key={book.dataId}> 
@@ -75,6 +79,6 @@ export default function BookDetail(props)
       </Link>
       ))}
    </main>
-      </div>
+   </div>
    )
 }

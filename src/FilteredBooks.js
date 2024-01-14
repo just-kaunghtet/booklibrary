@@ -41,7 +41,7 @@ export default function FilteredBooks(props)
       <div className='book-navSection'><h1>BOOK LIST</h1>
       <div><Pagination count={pageNum} shape="rounded" siblingCount={0} boundaryCount={2} page={currentPage} onChange={(e,val) => setCurrentPage(val)}/></div>
       </div>
-    <main className={props.darkMode ? "dark": ""}>
+    <main className={props.darkMode ? "dark": "light"}>
         {showbook.map(book=> (
         <Link className="book-info" to={`/book/${book.dataId}`} key={book.dataId}> 
         <img className="book-cover" src={book.coverImage} alt={book.dataId}></img>

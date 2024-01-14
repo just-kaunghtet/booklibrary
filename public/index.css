@@ -170,10 +170,8 @@ main {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
 }
-main.dark {
-  .book-info {
-    background-color: #0a2f2c;
-  }
+.dark {
+  background-color: #0a2f2c;
   .book-info-items {
     color: white;
   }
@@ -292,4 +290,8 @@ main.dark {
 .book-detail-button:hover {
   color: beige;
   background-color: #115e59;
+}
+.recommend-section {
+  display: flex;
+  margin: 5px;
 }

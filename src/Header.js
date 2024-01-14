@@ -1,14 +1,21 @@
 import {TextField} from '@mui/material'
 import { Link } from 'react-router-dom'
+import { useState } from 'react';
 export default function Header(props)
 {
+  const [title, setTitle] = useState('');
+  function renderSearchbar()
+  {
     return(
-      <nav className="">
+        <div className='search-bar'>   
+        <TextField id="outlined-small" label="Enter Book Name Here" variant="outlined" size="small" sx={{margin:3}} onChange={(e) => setTitle(e.target.value)}/>
+        <Link className='search-button' to={`/book/title/${title}`}>Search</Link></div>
+          )
+  }
+    return(
+      <nav className={props.darkMode ? "dark" : "light"}>
         <Link className='header-title' to="/">BOOK LIBRARY</Link>
-        <div className='search-bar'>
-          <TextField fullWidth id="outlined-small" label="Enter Book Name Here" variant="outlined" size="small" defaultValue="" sx={{margin:3}}/>
-          <input type='button' value="Search" className='search-button'/>
-        </div>
+        {renderSearchbar()}
         <div className="toggle">
                 <p className="toggle-light">Light</p>
                 <div className="toggle-slider" onClick={props.toggleDarkMode}>
