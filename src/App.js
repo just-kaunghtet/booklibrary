@@ -14,7 +14,7 @@ export default function App() {
         <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
         <div className="web-body">
             <Category darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-            <Outlet />
+            <Outlet darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         </div>
       </div> 
     )

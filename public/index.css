@@ -160,8 +160,9 @@ nav.dark {
 }
 .book-container {
   flex: 1;
+  background-color: white;
 }
-.book-container.dark {
+.dark {
   background-color: #21222a;
   opacity: 0.9;
 }
@@ -170,10 +171,9 @@ main {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
 }
-.dark {
-  background-color: #0a2f2c;
-  .book-info-items {
-    color: white;
+.book-container .dark {
+  .book-info {
+    background-color: #115e59;
   }
 }
 .misc-info {
