@@ -22,15 +22,10 @@ const Login = (props) => {
 
  const handleLogin = () => {
     if (data.email === "kh@gmail.com" && data.password === "password")
-      setUser(true);
+     {setUser(true);
+      navigate("/book")}
     else setUser(false);
  };
-
- useEffect(() => {
-    if (user === true) {
-      navigate("/book");
-    }
- }, [user,navigate]);
 
  return (
   <div className={`login-container ${props.darkMode ? "dark" : "light"}`}>
