@@ -19,6 +19,7 @@ import {
     const handleLoginResult = (result) => {
       setCondition(result.success)
    };
+    console.log(condition);
    const [darkMode, setDarkMode]= useState(true)
     function toggleDarkMode()
     {
