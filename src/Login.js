@@ -30,7 +30,7 @@ const Login = (props) => {
     if (user === true) {
       navigate("/book");
     }
- }, [user]);
+ }, [user,navigate]);
 
  return (
   <div className={`login-container ${props.darkMode ? "dark" : "light"}`}>
