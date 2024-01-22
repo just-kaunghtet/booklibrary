@@ -8,13 +8,13 @@ export default function Header(props)
   {
     return(
         <div className='search-bar'>   
-        <TextField id="outlined-small" label="Enter Book Name Here" variant="outlined" size="small" sx={{margin:3}} onChange={(e) => setTitle(e.target.value)}/>
+        <TextField id="outlined-small" label="Enter a book name" variant='outlined' size="small" sx={{margin:3 , width: 300, backgroundColor: 'white', borderRadius: 1}} onChange={(e) => setTitle(e.target.value)}/>
         <Link className='search-button' to={`/book/title/${title}`}>Search</Link></div>
           )
   }
     return(
       <nav className={props.darkMode ? "dark" : "light"}>
-        <Link className='header-title' to="/">BOOK LIBRARY</Link>
+        <Link className='header-title' to="/book">BOOK LIBRARY</Link>
         {renderSearchbar()}
         <div className="toggle">
                 <p className="toggle-light">Light</p>

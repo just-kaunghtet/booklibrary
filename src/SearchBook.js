@@ -41,7 +41,7 @@ export default function SearchBook(props)
     setShowBook(books.slice((currentPage-1) * booksPerPage, currentPage * booksPerPage))
   }, [currentPage,books])
    return(
-   <div className={`book-container ${props.darkMode ? "dark": "light"}`}>
+   <div className="book-container">
    <div className='book-navSection'><h1>BOOK LIST</h1>
    <div><Pagination count={Math.ceil(books.length / booksPerPage)} shape="rounded" siblingCount={0} boundaryCount={2} page={currentPage} onChange={(e,val) => setCurrentPage(val)}/></div>
    </div>

@@ -46,7 +46,7 @@ export default function BookDetail(props)
       recommendBooks();
    }, [allbooks,id,book])
    return(
-    <div className={props.darkMode ? "dark": "light"}>
+    <div className="book-container">
         {(book)? (
         <div className="book-detail" key={book.dataId}>
         <img className="book-cover" src={book.coverImage} alt={book.title}></img>
