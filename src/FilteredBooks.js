@@ -41,7 +41,8 @@ export default function FilteredBooks(props)
       <div className='book-navSection'><h1>BOOK LIST</h1>
       <div><Pagination count={pageNum} shape="rounded" siblingCount={0} boundaryCount={2} page={currentPage} onChange={(e,val) => setCurrentPage(val)}/></div>
       </div>
-    <main>
+      {showbook.length>0? 
+      <main>
         {showbook.map(book=> (
         <Link className="book-info" to={`/book/${book.dataId}`} key={book.dataId}> 
         <img className="book-cover" src={book.coverImage} alt={book.dataId}></img>
@@ -53,8 +54,14 @@ export default function FilteredBooks(props)
          </div>
         </div>
       </Link>
-       ))}
-    </main>
+       ))}   
+      </main>
+      :
+      <div className="no-book-display">
+        <p>No Books Found! Back To </p>
+        <Link className='header-title' to="/book">BOOK LIBRARY</Link>
+      </div>
+      }
     </div>
    )
 }

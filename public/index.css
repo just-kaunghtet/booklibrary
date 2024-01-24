@@ -66,7 +66,7 @@ nav {
 .search-bar {
   display: flex;
   height: 70px;
-  width: 75%;
+  width: auto;
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
@@ -106,24 +106,9 @@ nav.dark {
   color: #115e59;
   font-size: 30px;
   text-decoration: none;
-  margin-left: 10px;
+  padding-left: 10px;
 }
 
-.book-categories.dark {
-  background-color: #21222a;
-  opacity: 0.9;
-  .cat-attr {
-    background-color: #115e59;
-  }
-  .cat-title {
-    color: black;
-  }
-  .cat-attr:hover {
-    .cat-title {
-      color: white;
-    }
-  }
-}
 .cat-attr {
   text-decoration: none;
   display: flex;
@@ -153,19 +138,14 @@ nav.dark {
     color: #115e59;
   }
 }
-.book-container {
-  flex: 1;
-  background-color: white;
-}
-.dark {
-  background-color: #21222a;
-  opacity: 0.9;
-}
-
-.book-container .dark {
-  .book-info {
-    background-color: #115e59;
+.cat-attr.active {
+  background-color: #ffead0;
+  .cat-title {
+    color: #115e59;
   }
+}
+.book-container {
+  background-color: white;
 }
 .misc-info {
   display: flex;
@@ -327,35 +307,77 @@ nav.dark {
   grid-template-columns: 200px 1fr;
   column-gap: 10px;
   height: 100%;
+  width: auto;
+}
+.web-body.dark {
+  background-color: #21222a;
+  opacity: 0.9;
+  .book-container {
+    background-color: #21222a;
+    opacity: 0.9;
+    h1 {
+      color: white;
+    }
+    .MuiPagination-root {
+      button {
+        color: #ffead0 !important;
+      }
+    }
+  }
+  .book-categories {
+    .cat-attr {
+      background-color: #115e59;
+    }
+    .cat-title {
+      color: black;
+    }
+    .cat-attr:hover {
+      .cat-title {
+        color: white;
+      }
+    }
+  }
 }
 main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
+  width: 100%;
 }
-@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+.no-book-display {
+  display: flex;
+  flex-direction: row;
+  height: 75px;
 }
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-  .root {
-    width: 1024px;
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+  .no-book-display {
+    width: 1230px;
   }
-
+}
+@media only screen and (min-width: 767px) and (max-width: 1024px) {
+  .root {
+    width: auto;
+  }
   main {
     grid-template-columns: 1fr 1fr;
   }
   .book-categories {
     width: auto;
   }
+  .no-book-display {
+    width: 814px;
+  }
 }
 @media only screen and (min-width: 425px) and (max-width: 768px) {
   .root {
-    width: 786px;
+    width: auto;
   }
   .web-body {
     display: grid;
     grid-template-columns: 180px 1fr;
     column-gap: 10px;
     height: 100%;
+    width: fit-content;
   }
   main {
     grid-template-columns: 1fr;

@@ -19,19 +19,14 @@ import {
     const handleLoginResult = (result) => {
       setCondition(result.success)
    };
-    console.log(condition)
-   const [darkMode, setDarkMode]= useState(true)
-    function toggleDarkMode()
-    {
-        setDarkMode(prevMode => !prevMode)
-    }
+   console.log(condition)
     return (
         <RouterProvider router={
           createBrowserRouter(createRoutesFromElements(
                 <Route path="/" element={<App/>}>
-                  <Route path="/" element={<Login onLoginResult={handleLoginResult} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />}/>
-                  <Route path="/book" element={<Home darkMode={darkMode} toggleDarkMode={toggleDarkMode} />}>
-                    <Route path="/book" element={<Book darkMode={darkMode} toggleDarkMode={toggleDarkMode} />}/>
+                  <Route path="/" element={<Login onLoginResult={handleLoginResult}/>}/>
+                  <Route path="/book" element={<Home/>}>
+                    <Route path="/book" element={<Book/>}/>
                     <Route path="/book/:id" element={<BookDetail/>}/> 
                     <Route path="/book/category/:category" element={<FilteredBooks />}/> 
                     <Route path="/book/title/:title" element={<SearchBook />}/>  
