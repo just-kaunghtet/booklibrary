@@ -118,6 +118,7 @@ nav.dark {
   background-color: brown;
   border-radius: 10px;
   padding: 0px 10px 0px 10px;
+  height: 50px;
 }
 .cat-img {
   width: 40px;
@@ -131,7 +132,7 @@ nav.dark {
   text-decoration: none;
   justify-content: center;
   color: beige;
-  font-size: 10px;
+  font-size: 12px;
 }
 .cat-attr:hover {
   background-color: #ffead0;
