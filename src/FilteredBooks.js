@@ -58,7 +58,7 @@ export default function FilteredBooks(props)
       </main>
       :
       <div className="no-book-display">
-        <p>No Books Found! Back To </p>
+        <h1>No Books Found! Back To </h1>
         <Link className='header-title' to="/book">BOOK LIBRARY</Link>
       </div>
       }

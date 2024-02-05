@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-const Login = (props) => {
+const Login = () => {
  const navigate = useNavigate();
  const [user, setUser] = useState(null);
  const [data, setData] = useState({
@@ -17,8 +17,8 @@ const Login = (props) => {
     });
  };
 
- useEffect(() => {
- }, [setData]);
+//  useEffect(() => {
+//  }, [setData]);
 
  const handleLogin = () => {
     if (data.email === "kh@gmail.com" && data.password === "password")
@@ -28,7 +28,7 @@ const Login = (props) => {
  };
 
  return (
-  <div className={`login-container ${props.darkMode ? "dark" : "light"}`}>
+  <div className={`login-container`}>
     <div><h1 className="login-text">Welcome to B-Library</h1>
     </div>
     <form className="login-form">
@@ -57,9 +57,7 @@ const Login = (props) => {
         Login
       </button>
       </div>  
-      
     </form>
-    
     </div>
  );
 };

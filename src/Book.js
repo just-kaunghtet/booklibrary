@@ -9,12 +9,24 @@ export default function Book(props)
   const [currentPage, setCurrentPage] = useState(1)
   const booksPerPage=15
   const pageNum=Math.ceil(allbooks.length / booksPerPage);
+  useEffect(() => {
+    fetch(allbooksText)
+      .then(r => {
+        if (!r.ok) {
+          throw new Error(`HTTP error! status: ${r.status}`);
+        }
+        return r.text();
+      })
+      .then(allbooksText => {
+        try {
+          setAllBooks(JSON.parse(allbooksText));
+        } catch (e) {
+          console.error("Could not parse JSON", e);
+        }
+      })
+      .catch(e => console.error("Fetch error", e));
+  }, []);
       
-   useEffect(() => {
-   fetch(allbooksText)
-  .then(r => r.text())
-  .then(allbooksText => setAllBooks(JSON.parse(allbooksText)))
-   },[])
    useEffect(() => {
     setShowBook(allbooks.slice((currentPage-1) * booksPerPage, currentPage * booksPerPage))
   }, [currentPage,allbooks])
@@ -29,6 +41,7 @@ export default function Book(props)
       <Link className='book-info' to={`/book/${book.dataId}`} key={book.dataId}> 
         <img className="book-cover" src={book.coverImage} alt={book.dataId}></img>
         <div className="book-info-detail">
+
          <div className="book-info-items title">{book.title}</div>
          <div className="info-bar">
          <div className= "book-info-items year">Published {book.publishAdt}</div>

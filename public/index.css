@@ -299,15 +299,11 @@ nav.dark {
   height: 30px;
   padding-left: 10px;
 }
-.book-categories {
-  width: auto;
-}
 .web-body {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: auto 1fr;
   column-gap: 10px;
   height: 100%;
-  width: auto;
 }
 .web-body.dark {
   background-color: #21222a;
@@ -340,18 +336,97 @@ nav.dark {
 }
 main {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
   width: 100%;
+  margin-right: 10px;
 }
 .no-book-display {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   height: 75px;
 }
-@media only screen and (min-width: 1025px) and (max-width: 1440px) {
-  .no-book-display {
-    width: 1230px;
+.no-book-display > h1,
+Link {
+  display: flex;
+  align-items: top;
+}
+.no-book-display > h1 {
+  margin: 0;
+  justify-content: right;
+}
+
+@media only screen and (min-width: 1023px) {
+  .web-body {
+    width: 100%;
+  }
+  main {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1024px) {
+  .web-body {
+    width: 100%;
+  }
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 425px) and (max-width: 768px) {
+  .web-body {
+    width: 100%;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .book-categories {
+    width: 75%;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .cat-attr {
+    width: 150px;
+  }
+
+  .book-detail {
+    height: auto;
+    padding: 13px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .root {
+    width: 100%;
+  }
+
+  .web-body {
+    width: 100%;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .book-detail,
+  .book-info {
+    width: 100%;
+    height: auto;
+  }
+
+  .book-info-items.title {
+    font-size: 18px;
+  }
+}
+
+/* @media only screen and (min-width: 1023px) {
+  .web-body {
+    width: 1518px;
   }
 }
 @media only screen and (min-width: 767px) and (max-width: 1024px) {
@@ -397,7 +472,7 @@ main {
     padding: 13px;
   }
 }
-@media only screen and (min-width: 320px) and (max-width: 425px) {
+@media only screen and (max-width: 425px) {
   .root {
     width: 300px;
   }
@@ -421,4 +496,4 @@ main {
   .book-info-items.title {
     font-size: 18px;
   }
-}
+} */
