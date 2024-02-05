@@ -362,6 +362,9 @@ Link {
   main {
     grid-template-columns: 1fr 1fr 1fr;
   }
+  .no-book-display {
+    width: 1267px;
+  }
 }
 
 @media only screen and (min-width: 767px) and (max-width: 1024px) {
@@ -423,77 +426,3 @@ Link {
     font-size: 18px;
   }
 }
-
-/* @media only screen and (min-width: 1023px) {
-  .web-body {
-    width: 1518px;
-  }
-}
-@media only screen and (min-width: 767px) and (max-width: 1024px) {
-  .root {
-    width: auto;
-  }
-  main {
-    grid-template-columns: 1fr 1fr;
-  }
-  .book-categories {
-    width: auto;
-  }
-  .no-book-display {
-    width: 814px;
-  }
-}
-@media only screen and (min-width: 425px) and (max-width: 768px) {
-  .root {
-    width: auto;
-  }
-  .web-body {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    column-gap: 10px;
-    height: 100%;
-    width: fit-content;
-  }
-  main {
-    grid-template-columns: 1fr;
-    padding-right: 10px;
-  }
-  .book-categories {
-    width: 75%;
-  }
-  h1 {
-    font-size: 20px;
-  }
-  .cat-attr {
-    width: 150px;
-  }
-  .book-detail {
-    height: auto;
-    padding: 13px;
-  }
-}
-@media only screen and (max-width: 425px) {
-  .root {
-    width: 300px;
-  }
-  .web-body {
-    display: grid;
-    grid-template-columns: 100px 200px;
-    column-gap: 10px;
-    height: 100%;
-  }
-  main {
-    grid-template-columns: 1fr;
-  }
-  .book-detail {
-    height: auto;
-    padding: 13px;
-  }
-  .book-info {
-    width: 75%;
-    height: auto;
-  }
-  .book-info-items.title {
-    font-size: 18px;
-  }
-} */
