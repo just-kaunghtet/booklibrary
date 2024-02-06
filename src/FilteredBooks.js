@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
-import allbooksText from './data text files/allbooks.txt'
 import { Link, useParams } from 'react-router-dom';
 import { Pagination } from "@mui/material";
-export default function FilteredBooks(props)
+export default function FilteredBooks({allbooks1,propCat})
 {
   const booksPerPage=15
    const [allbooks, setAllBooks] =useState([])
@@ -10,11 +9,10 @@ export default function FilteredBooks(props)
    const {category} = useParams();
    const [showbook,setShowBook]=useState([])
    const [currentPage, setCurrentPage] = useState(1)
+   const selectedCat= propCat || category
    useEffect(() => {
-   fetch(allbooksText)
-   .then(r => r.text())
-   .then(booktext => setAllBooks(JSON.parse(booktext)))
-   },[]) 
+      setAllBooks(allbooks1)
+   },[allbooks1]) 
    useEffect(() => {
     const updateBooks = async () => {
       const bookObjects = [];
@@ -24,14 +22,14 @@ export default function FilteredBooks(props)
         behavior: "smooth",
       });
       for (let i = 0; i < allbooks.length; i++) {
-        if (allbooks[i].tags.toString().includes(category)) {
+        if (allbooks[i].tags.toString().includes(selectedCat)) {
           bookObjects.push({...allbooks[i]});
         }
       }
       setBooks(bookObjects);
     }
     updateBooks();
- }, [allbooks, category])
+ }, [allbooks, selectedCat])
   const pageNum=Math.ceil(books.length / booksPerPage);
   useEffect(() => {
   setShowBook(books.slice((currentPage-1) * booksPerPage, currentPage * booksPerPage))

@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react"
-import allbooksText from './data text files/allbooks.txt'
 import { Link, useParams } from 'react-router-dom';
 
-export default function BookDetail(props)
+export default function BookDetail({books,propId})
 {
    const [allbooks, setAllBooks] =useState([])
-   const [book, setBook] = useState([])
-   const [books, setBooks] = useState([])
-   const {id} = useParams();
+   const [book, setBook] = useState({})
+   const [moreBooks, setmoreBooks] = useState([])
+   const { id } = useParams();
+   const searchId= propId || id;
    useEffect(() => {
-   fetch(allbooksText)
-   .then(r => r.text())
-   .then(allbooksText => setAllBooks(JSON.parse(allbooksText)))
-   },[])   
+    if(books)
+      {
+      setAllBooks(books)
+      }
+   },[books])   
    useEffect(() => {
       const bookObjects = [];
       const updateBooks = async () => {
@@ -21,7 +22,7 @@ export default function BookDetail(props)
             left: 0,
             behavior: "smooth",
           });
-      const bookObject = allbooks.find(book => book.dataId === id)
+      const bookObject = allbooks.find(book => book.dataId === searchId)
       if (bookObject) 
       {
         setBook(bookObject)
@@ -38,21 +39,20 @@ export default function BookDetail(props)
       }
       if (bookObjects.length===6) 
       {
-       setBooks(bookObjects)
+       setmoreBooks(bookObjects)
         break;
       }
       }
    }
       recommendBooks();
-   }, [allbooks,id,book])
+   }, [allbooks,searchId,book])
    return(
     <div className="book-container">
         {(book)? (
         <div className="book-detail" key={book.dataId}>
         <img className="book-cover" src={book.coverImage} alt={book.title}></img>
-        <div className="book-info-detail">
+        <div className="book-info-detail" data-testid="detail">
          <div className="book-info-items title">{book.title}</div>
-         <div className="book-info-items author">{`By: ${book.author}`}</div>
          <div className="book-info-items ID">{`ID: ${book.dataId}`}</div>
          <div className="book-info-items pages">{`${book.pageCount? book.pageCount: "Unknown pages" }`}</div>
          <div className="book-info-items ID">{`Publish Year: ${book.publishAdt}`}</div>
@@ -66,7 +66,7 @@ export default function BookDetail(props)
        }
       <div className="recommend-section">Books of same category</div>
       <main>
-      {books.map(book=>(
+      {moreBooks.map(book=>(
       <Link className='book-info' to={`/book/${book.dataId}`} key={book.dataId}> 
         <img className="book-cover" src={book.coverImage} alt={book.dataId}></img>
         <div className="book-info-detail">

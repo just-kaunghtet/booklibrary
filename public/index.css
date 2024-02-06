@@ -155,7 +155,7 @@ nav.dark {
   justify-content: space-between;
 }
 .book-info {
-  height: 200px;
+  height: 180px;
   width: auto;
   border-radius: 10px;
   display: flex;
@@ -169,8 +169,8 @@ nav.dark {
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
 }
 .book-detail {
-  height: 200px;
-  width: 90%;
+  height: 220px;
+  width: auto;
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   display: flex;
@@ -178,10 +178,14 @@ nav.dark {
   padding: 13px;
   padding-bottom: 20px;
   background-color: bisque;
+  align-items: center;
+  .book-cover {
+    width: 120px;
+    height: 200px;
+  }
 }
 .book-cover {
-  height: 150px;
-  width: 150px;
+  width: 120px;
   height: auto;
 }
 .book-info-detail {
@@ -362,19 +366,19 @@ Link {
 .recommend-section {
   font-size: large;
 }
-@media only screen and (min-width: 1023px) {
+@media only screen and (min-width: 1129px) {
   .web-body {
     width: 100%;
   }
   main {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
   .no-book-display {
     width: 1267px;
   }
 }
 
-@media only screen and (min-width: 767px) and (max-width: 1024px) {
+@media only screen and (min-width: 808px) and (max-width: 1128px) {
   .web-body {
     width: 100%;
   }
@@ -383,7 +387,7 @@ Link {
   }
 }
 
-@media only screen and (min-width: 425px) and (max-width: 768px) {
+@media only screen and (min-width: 528px) and (max-width: 807px) {
   .web-body {
     width: 100%;
     height: auto;
@@ -411,11 +415,13 @@ Link {
   }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 528px) {
   .root {
     width: 100%;
   }
-
+  h1 {
+    font-size: 20px;
+  }
   .web-body {
     max-width: 425px;
     width: 100%;

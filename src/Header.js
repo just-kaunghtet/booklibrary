@@ -18,7 +18,7 @@ export default function Header(props)
         {renderSearchbar()}
         <div className="toggle">
                 <p className="toggle-light">Light</p>
-                <div className="toggle-slider" onClick={props.toggleDarkMode}>
+                <div data-testid="toggle-slider" className="toggle-slider" onClick={props.toggleDarkMode}>
                     <div className="slider-circle"></div>
                 </div>
                 <p className="toggle-dark">Dark</p>

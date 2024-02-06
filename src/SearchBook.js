@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
-import allbooksText from './data text files/allbooks.txt'
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom"
 import { Pagination } from "@mui/material"
-export default function SearchBook(props)
+export default function SearchBook({Abooks,propsTitle})
 {
    const [allbooks, setAllBooks] =useState([])
    const [books, setBooks] = useState([])
@@ -11,11 +10,13 @@ export default function SearchBook(props)
    const [currentPage, setCurrentPage] = useState(1)
    const [showbook,setShowBook]=useState([])
    const booksPerPage=15
+   const searchedTitle= propsTitle||title
    useEffect(() => {
-   fetch(allbooksText)
-   .then(r => r.text())
-   .then(allbooksText => setAllBooks(JSON.parse(allbooksText)))
-   },[])  
+    if(Abooks)
+    {
+      setAllBooks(Abooks)
+    }   
+    },[Abooks])  
    useEffect(()=>{
     const bookObjects = [];
     const searchBook = async () => {
@@ -27,7 +28,7 @@ export default function SearchBook(props)
          
         for (let i = 0; i < allbooks.length; i++) 
         {
-        if(allbooks[i].title.toString().includes(title))
+        if(allbooks[i].title.toString().includes(searchedTitle))
         {
             bookObjects.push({...allbooks[i]});
         }
@@ -35,7 +36,7 @@ export default function SearchBook(props)
          setBooks(bookObjects)
         }  
     searchBook(); 
-   },[title,allbooks])
+   },[searchedTitle,allbooks])
    
     useEffect(() => {
     setShowBook(books.slice((currentPage-1) * booksPerPage, currentPage * booksPerPage))
