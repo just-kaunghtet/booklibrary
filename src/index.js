@@ -13,8 +13,6 @@ import {
   import Home from './Home';
   import App from './App';
   import Login from './Login';
-  import { Provider } from 'react-redux';
-  import store from './redux/store';
   import allbooksText from './data text files/allbooks.txt'
 
   function Render() {
