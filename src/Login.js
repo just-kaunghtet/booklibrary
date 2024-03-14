@@ -16,10 +16,7 @@ const Login = () => {
       [name]: value,
     });
  };
-
-//  useEffect(() => {
-//  }, [setData]);
-
+ 
  const handleLogin = () => {
     if (data.email === "kh@gmail.com" && data.password === "password")
      {setUser(true);

@@ -2,7 +2,13 @@ import Header from "./Header"
 import { useState,useEffect } from "react"
 import Category from "./Category"
 import { Outlet } from "react-router-dom"
-import catText from './data text files/categoryList.txt'
+// import { createClient } from '@supabase/supabase-js';
+import catList from './data text files/categoryList.json'
+// const supabaseUrl = 'https://wlgjlhrhiqjaxqwfhoyk.supabase.co';
+// const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndsZ2psaHJoaXFqYXhxd2Zob3lrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODg1NDA3ODgsImV4cCI6MjAwNDExNjc4OH0.C5IZL4_Fwsl4WT1ojFA0bia-vuWTibH1WoeqCRCmCQ0';
+// const supabase = createClient(supabaseUrl, supabaseKey);
+// const tableName = 'categories';
+
 export default function Home()
 {
     const [darkMode, setDarkMode]= useState(false)
@@ -11,24 +17,10 @@ export default function Home()
     {
         setDarkMode(prevMode => !prevMode)
     }
-    useEffect(() => {   
-        fetch(catText)
-          .then(res => {
-            if (!res.ok) {
-              throw new Error(`HTTP error! status: ${res.status}`);
-            }
-            return res.text();
-          })
-          .then(cattext => {
-            try {
-              setCategories1(JSON.parse(cattext));
-              // con
-            } catch (e) {
-              console.error("Could not parse JSON", e);
-            }
-          })
-          .catch(e => console.error("Fetch error", e));
-        }, [])
+    useEffect(()=>
+    {
+        setCategories1(catList)
+    },[])
     return(
             <div className="Home">
              <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>

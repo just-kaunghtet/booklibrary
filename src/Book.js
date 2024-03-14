@@ -1,14 +1,12 @@
 import { useEffect,useState } from "react"
 import { Link } from "react-router-dom"
 import { Pagination } from "@mui/material"
-// import { useSelector, useDispatch } from 'react-redux';
-// import { setAllBooks, setShowBook, setCurrentPage } from './redux/actions';
 export default function Book({allbooks1})
 {
   const [allbooks, setAllBooks] =useState([])
   const [showbook,setShowBook]=useState([])
   const [currentPage, setCurrentPage] = useState(1)
-  const booksPerPage=15
+  const booksPerPage=16
   const pageNum=Math.ceil(allbooks.length / booksPerPage);
   useEffect(() => {
     if(allbooks1){

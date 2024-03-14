@@ -13,7 +13,14 @@ import {
   import Home from './Home';
   import App from './App';
   import Login from './Login';
-  import allbooksText from './data text files/allbooks.txt'
+  //import { createClient } from '@supabase/supabase-js';
+  import allBookList from './data text files/allbooks.json'
+
+// const supabaseUrl = 'https://wlgjlhrhiqjaxqwfhoyk.supabase.co';
+// const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndsZ2psaHJoaXFqYXhxd2Zob3lrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODg1NDA3ODgsImV4cCI6MjAwNDExNjc4OH0.C5IZL4_Fwsl4WT1ojFA0bia-vuWTibH1WoeqCRCmCQ0';
+
+// const supabase = createClient(supabaseUrl, supabaseKey);
+// const tableName = 'books';
 
   function Render() {
     const [condition,setCondition]=useState(false)
@@ -21,31 +28,11 @@ import {
       setCondition(result.success)
    };
    console.log(condition)
-
    const [allbooks1, setAllBooks1] = useState([])
-   
-
-    useEffect(() => {
-    fetch(allbooksText)
-      .then(r => {
-        if (!r.ok) {
-          throw new Error(`HTTP error! status: ${r.status}`);
-        }
-        return r.text();
-      })
-      .then(allbooksText => {
-        try {
-          setAllBooks1(JSON.parse(allbooksText));
-          // con
-        } catch (e) {
-          console.error("Could not parse JSON", e);
-        }
-      })
-      .catch(e => console.error("Fetch error", e));
-  }, []);
-
-  
-
+   useEffect(()=>
+   {
+    setAllBooks1(allBookList)
+   },[])
     return (
         <RouterProvider router={
           createBrowserRouter(createRoutesFromElements(

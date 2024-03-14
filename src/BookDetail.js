@@ -33,6 +33,7 @@ export default function BookDetail({books,propId})
       {
       for (let i = 0; i < allbooks.length; i++) 
       {
+        console.log(book.tags)
       if(book.tags ? book.tags.map(tag=>(allbooks[i].tags.toString().includes(tag))) && book.dataId!==allbooks[i].dataId : "Error")
       {
         bookObjects.push(allbooks[i])
